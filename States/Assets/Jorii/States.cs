@@ -7,6 +7,7 @@ public class States : MonoBehaviour
     [SerializeField] private GameObject player; //Player
     [SerializeField] private GameObject enemy; //Enemy
     [SerializeField] private GameObject[] targets;
+    [SerializeField] private float speed;
     private int randomTarget;
     private float distanceToTarget;
     private float distancePlayerEnemy;
@@ -22,7 +23,7 @@ public class States : MonoBehaviour
 
     private void Update()
     {
-        enemy.transform.Translate(Vector3.forward * Time.deltaTime * 100f);
+        enemy.transform.Translate(Vector3.forward * Time.deltaTime * speed);
         distancePlayerEnemy = Vector3.Distance(enemy.transform.position, player.transform.position);
         if (distancePlayerEnemy >= 5 && distancePlayerEnemy <= 10)
         {
